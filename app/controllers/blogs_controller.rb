@@ -12,6 +12,10 @@ class BlogsController < ApplicationController
     redirect_to new_blog_path  #GETでBlogsコントローラのnewメソッドに飛ぶ(pathで相対パスを指定している)
   end
 
+  def show
+    @blog = Blog.find(params[:id])
+  end
+
 
   private
 
