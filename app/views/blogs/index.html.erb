@@ -1,0 +1,15 @@
+<h1>ブログ一覧</h1>
+<%= link_to "つぶやいてみる", new_blog_path %>
+
+<table>
+  <tr>
+    <th>タイトル</th>
+    <th>内容</th>
+  </tr>
+
+<% @blogs.each do |blog| %>
+  <tr>
+    <td><%= blog.content %></td>
+  </tr>
+<% end %>
+</table>
