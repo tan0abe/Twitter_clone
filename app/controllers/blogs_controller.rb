@@ -17,10 +17,11 @@ class BlogsController < ApplicationController
   end
 
   def show
-    @blog = Blog.find(params[:id])
+    @blog = Blog.find(params[:id])  #取得するパラメーターはidのみなので、ストロングパラメータは使わない
   end
 
   def edit
+    @blog = Blog.find(params[:id])  #取得するパラメーターはidのみなので、ストロングパラメータは使わない
   end
 
   private
