@@ -1,4 +1,4 @@
-<%= form_with(model: @blog, local: true) do |form| %>
+<%= form_with(model: @blog, local: true, url: confirm_blogs_path) do |form| %>
   <% if @blog.errors.any? %>  <!--any?とすることでエラーが存在している時だけ(@blogの中にエラー情報が詰め込まれている時だけ)、内部の記述を実行するようにしている-->
     <div id="error_explanation">
       <h2><%= @blog.errors.count %>件のエラーがあります。</h2>  <!--格納された全てのエラーメッセージをeach文で1つずつ取り出して、msgに格納し表示させています-->
@@ -18,4 +18,4 @@
   <%= form.submit %>
 <% end %>
 
-<%= link_to "ブログ一覧画面にもどる",blogs_path %>
+<%= link_to "ついーと一覧画面にもどる",blogs_path %>
