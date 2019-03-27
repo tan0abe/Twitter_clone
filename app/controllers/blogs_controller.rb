@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: [:show, :edit, :update]  #アクションのメソッドが実行される前にset_blogアクションを、show,edit,updateアクションのみで実行している
+  before_action :set_blog, only: [:show, :edit, :update, :destroy]  #アクションのメソッドが実行される前にset_blogアクションを、show,edit,updateアクションのみで実行している
 
   def index
     @blogs = Blog.all
@@ -32,6 +32,11 @@ class BlogsController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @blog.destroy
+    redirect_to blogs_path, notice:"ついーとを削除しました！"
   end
 
   private
