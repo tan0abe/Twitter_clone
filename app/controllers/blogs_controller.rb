@@ -8,8 +8,12 @@ class BlogsController < ApplicationController
   end
 
   def create
-    Blog.create(blog_params)
-    redirect_to new_blog_path  #GETでBlogsコントローラのnewメソッドに飛ぶ(pathで相対パスを指定している)
+    @blog = Blog.new(blog_params)
+    if @blog.save
+    redirect_to blogs_path, noctice: "みんなについーとしました！"  #GETでBlogsコントローラのindexアクションに飛ぶ(pathで相対パスを指定している)
+    else
+      render 'new'  #createアクションが実行されるとViewは自動的にcreate.html.erbを選択するが存在しないためエラーになるので、new.html.erbに変更している
+    end
   end
 
   def show
@@ -20,6 +24,6 @@ class BlogsController < ApplicationController
   private
 
   def blog_params  #createやupdateでも使うのでDRYの観点からメソッドとして定義している
-    params.require(:blog).permit(:content)  #(content: params[:blog][:content])のStrong Parametersでの書き方。blogキーのtitleのみ取得を許可している)
+    params.require(:blog).permit(:content)  #(content: params[:blog][:content])のStrong Parametersでの書き方。blogキーのcontentのみ取得を許可している)
   end
 end
