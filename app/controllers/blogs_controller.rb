@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: [:show, :edit, :update]
+  before_action :set_blog, only: [:show, :edit, :update]  #アクションのメソッドが実行される前にset_blogアクションを、show,edit,updateアクションのみで実行している
 
   def index
     @blogs = Blog.all
