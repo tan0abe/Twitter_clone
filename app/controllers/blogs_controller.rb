@@ -1,4 +1,6 @@
 class BlogsController < ApplicationController
+  before_action :set_blog, only: [:show, :edit, :update]
+
   def index
     @blogs = Blog.all
   end
@@ -17,15 +19,14 @@ class BlogsController < ApplicationController
   end
 
   def show
-    @blog = Blog.find(params[:id])  #取得するパラメーターはidのみなので、ストロングパラメータは使わない
+    
   end
 
   def edit
-    @blog = Blog.find(params[:id])  #取得するパラメーターはidのみなので、ストロングパラメータは使わない
+    
   end
 
   def update
-    @blog = Blog.find(params[:id])
     if @blog.update(blog_params)  #updateに引数(parametersで参照したもの）を与えると、その引数の値で更新できる
       redirect_to blogs_path, notice: "ブログを編集しました！"
     else
@@ -37,5 +38,9 @@ class BlogsController < ApplicationController
 
   def blog_params  #createやupdateでも使うのでDRYの観点からメソッドとして定義している
     params.require(:blog).permit(:content)  #(content: params[:blog][:content])のStrong Parametersでの書き方。blogキーのcontentのみ取得を許可している)
+  end
+
+  def set_blog
+    @blog = Blog.find(params[:id])  #取得するのはidのみでストロングパラメータを使う必要がなければ、set_blogメソッドを使う
   end
 end
