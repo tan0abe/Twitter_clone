@@ -28,7 +28,7 @@ class BlogsController < ApplicationController
 
   def update
     if @blog.update(blog_params)  #updateに引数(parametersで参照したもの）を与えると、その引数の値で更新できる
-      redirect_to blogs_path, notice: "ブログを編集しました！"
+      redirect_to blogs_path, notice: "ついーとを編集しました！"
     else
       render 'edit'
     end
@@ -37,6 +37,10 @@ class BlogsController < ApplicationController
   def destroy
     @blog.destroy
     redirect_to blogs_path, notice:"ついーとを削除しました！"
+  end
+
+  def confirm
+    @blog = Blog.new(blog_params)
   end
 
   private
