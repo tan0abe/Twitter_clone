@@ -1,7 +1,7 @@
 <%= form_with(model: @blog, local: true) do |form| %>
-  <% if @blog.errors.any? %>
+  <% if @blog.errors.any? %>  <!--any?とすることでエラーが存在している時だけ(@blogの中にエラー情報が詰め込まれている時だけ)、内部の記述を実行するようにしている-->
     <div id="error_explanation">
-      <h2><%= @blog.errors.count %>件のエラーがあります。</h2>
+      <h2><%= @blog.errors.count %>件のエラーがあります。</h2>  <!--格納された全てのエラーメッセージをeach文で1つずつ取り出して、msgに格納し表示させています-->
       <ul>
 
       <% @blog.errors.full_messages.each do |msg| %>
