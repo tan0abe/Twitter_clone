@@ -24,6 +24,15 @@ class BlogsController < ApplicationController
     @blog = Blog.find(params[:id])  #取得するパラメーターはidのみなので、ストロングパラメータは使わない
   end
 
+  def update
+    @blog = Blog.find(params[:id])
+    if @blog.update(blog_params)  #updateに引数(parametersで参照したもの）を与えると、その引数の値で更新できる
+      redirect_to blogs_path, notice: "ブログを編集しました！"
+    else
+      render 'edit'
+    end
+  end
+
   private
 
   def blog_params  #createやupdateでも使うのでDRYの観点からメソッドとして定義している
