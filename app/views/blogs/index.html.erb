@@ -1,17 +1,18 @@
-<h1>ついーと一覧</h1>
-<%= link_to "つぶやいてみる", new_blog_path %>
-<p><%= notice %></p>
-<table>
-  <tr>
-    <th>ついーと</th>
-  </tr>
+<div class="container">
+<!--<%= link_to "つぶやいてみる", new_blog_path %>-->
+  <p><%= notice %></p>
+  <table>
+    <tr>
+      <th>ついーと</th>
+    </tr>
 
-<% @blogs.each do |blog| %>
-  <tr>
-    <td><%= blog.content %></td>
-    <td><%= link_to "詳細を確認する", blog_path(blog.id) %></td>  <!--(blog.id)とすることでblogのidを取得している-->
-    <td><%= link_to "ついーとを編集する", edit_blog_path(blog.id) %></td>
-    <td><%= link_to "ついーとを削除する", blog_path(blog.id), method: :delete, data: {confirm: "本気で削除していいですか？" }%></td>  <!--link_toはデフォルトではgetで送信するため、deleteメソッドでdestroyアクションを指定して送信している-->
-  </tr>
-<% end %>
-</table>
+  <% @blogs.each do |blog| %>
+    <tr>
+      <td><%= blog.content %></td>
+      <td><%= link_to "詳細を確認する", blog_path(blog.id) %></td>  <!--(blog.id)とすることでblogのidを取得している-->
+      <td><%= link_to "ついーとを編集する", edit_blog_path(blog.id) %></td>
+      <td><%= link_to "ついーとを削除する", blog_path(blog.id), method: :delete, data: {confirm: "本気で削除していいですか？" }%></td>  <!--link_toはデフォルトではgetで送信するため、deleteメソッドでdestroyアクションを指定して送信している-->
+    </tr>
+  <% end %>
+  </table>
+</div>
