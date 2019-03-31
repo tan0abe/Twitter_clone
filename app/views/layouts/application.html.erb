@@ -7,18 +7,19 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-  <div class="container">
-    <header class="header clearfix">
-      <nav>
-        <ul class="top_menu clearfix">
-        <li><a href="/blogs/new">つぶやいてみる</a></li>
-        </ul>
-      </nav>
-    </header>
-    <%= yield %>
-    <footer class="footer">
 
-    </footer>
-  </div>
+  <header>
+    <ul>
+      <li><a href="/">HOME</a></li>
+      <li><a href="/blogs/new">あらたにつぶやく</a></li>
+    </ul>
+  </header>
+
+    <%= yield %>
+
+    <footer>
+    <p>~~~~~つぶやいた~~~~~</p>
+  </footer>
+
   </body>
 </html>
