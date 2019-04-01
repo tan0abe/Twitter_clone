@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'boot', to: 'blogs#bootstrap'
   get 'temp', to: 'blogs#template'
   resources :blogs do
-    collection do  #idなどを必要としない固有のルーティングを作成(member doとするとidを必要とする固有のルーティングを作成する)
+    collection do
       post :confirm
     end
   end

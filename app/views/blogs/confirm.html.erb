@@ -1,7 +1,7 @@
 <h3>ほんとうにこれでいい？？</h3>
 
 <%= form_with(model: @blog, url: blogs_path, local: true) do |form| %>
-  <%= form.hidden_field :content %>  <!--hidden_fieldによりpostメソッド実行時に、form_with do ~ endに設定した値をリクエストパラメータに設定している-->
+  <%= form.hidden_field :content %>
 
   <p>ついーと:<%= @blog.content %></p>
   <%= form.submit  "つぶやく" %>
