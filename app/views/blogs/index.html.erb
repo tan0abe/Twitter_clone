@@ -1,18 +1,28 @@
 <div class="container">
-  <p><%= notice %></p>
-  <table class="table table-hover">
-    <tr>
-      <th>ついーと一覧</th>
-    </tr>
-
-  <% @blogs.each do |blog| %>
-    <tr>
-      <td class="active"></td>
-      <td class="active"><%= blog.content %></td>
-      <td class="success"><%= link_to "詳細を確認する", blog_path(blog.id) %></td>
-      <td class="info"><%= link_to "ついーとを編集する", edit_blog_path(blog.id) %></td>
-      <td class="danger"><%= link_to "ついーとを削除する", blog_path(blog.id), method: :delete, data: {confirm: "本気で削除していいですか？" }%></td>
-    </tr>
-  <% end %>
-  </table>
+  <header class="header">Bootstrap</header>
+    <nav class="menu">
+        <ul class="row">
+          <li class="col-md-4">top</li>
+          <li class="col-md-4">menu1</li>
+          <li class="col-md-4">menu2</li>
+        </ul>
+    </nav>
+  <article>
+    <div class="contents">
+        <ul class="row">
+          <li class="col-md-6">contents1</li>
+          <li class="col-md-6">contents2</li>
+          <!--Bootstrap4の途中-->
+                          <li>contents3</li>
+                          <li>contents4</li>
+        </ul>
+    </div>
+    <div class="topic">
+        <ul>
+          <li>bootstrapを使ってレスポンシブデザインを実現しよう！</li>
+          <li>やればできる！bootstrapを使ってみよう！</li>
+          <li>怖くない！レスポンシブデザインができるようになればWebアプリケーションもワンランク上に！</li>
+        </ul>
+    </div>
+  </article>
 </div>
