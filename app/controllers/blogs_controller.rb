@@ -16,23 +16,23 @@ class BlogsController < ApplicationController
   def create
     @blog = Blog.new(blog_params)
     if @blog.save
-    redirect_to blogs_path, notice: "みんなについーとしました！"
+    redirect_to blogs_path, notice: 'みんなについーとしました！'
     else
       render 'new'
     end
   end
 
   def show
-    
+
   end
 
   def edit
-    
+
   end
 
   def update
     if @blog.update(blog_params)
-      redirect_to blogs_path, notice: "ついーとを編集しました！"
+      redirect_to blogs_path, notice: 'ついーとを編集しました！'
     else
       render 'edit'
     end
@@ -40,7 +40,7 @@ class BlogsController < ApplicationController
 
   def destroy
     @blog.destroy
-    redirect_to blogs_path, notice:"ついーとを削除しました！"
+    redirect_to blogs_path, notice: 'ついーとを削除しました！'
   end
 
   def confirm
